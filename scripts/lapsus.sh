@@ -3,7 +3,7 @@
 COUNT=0
 CRR="0.067"
 
-SLP=3
+SLP=4
 
 TIMEOUT=1
 QUALITY=100
@@ -28,13 +28,12 @@ DEF_ARG="-dt --nopreview"
 [ $AWB     ]&&    AWB="-awb $AWB" #off,auto,sun,cloud,shade,tungsten,fluorescent,incandescent,flash,horizon
 
 [ ! $ODIR  ]&&   ODIR="/var/www/html/DCIM"
-[ ! $OFILE ]&&  OFILE="lapsus_%010d"
+[ ! $OFILE ]&&  OFILE="lapsus_"`date +%H%M%S`
 #[ ! $ ]&&=""
 
 function take {
     #Adjust()
-    T=`date +%H.%M.%S.%N`
-    echo $T `printf "%06d\n" $COUNT` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
+    echo `date +%H.%M.%S.%N` `printf "%06d\n" $COUNT` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
     raspistill $DEF_ARG\
         $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB\
         $SHARP $CONTR $BRIGH $SAT\
@@ -42,6 +41,7 @@ function take {
         -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
 }
 while : ; do
-    take & sleep `echo "scale=4;$SLP-$CRR" | bc ` #4.933
+    take &
+    sleep $SLP #`echo "scale=4;$SLP-$CRR" | bc`
     COUNT=$[$COUNT+1]
 done
