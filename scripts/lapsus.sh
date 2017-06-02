@@ -2,7 +2,6 @@
 
 COUNT=0
 CRR="0.067"
-
 SLP=4
 
 TIMEOUT=1
