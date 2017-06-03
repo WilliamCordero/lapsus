@@ -2,11 +2,12 @@
 
 COUNT=0
 CRR="0.067"
-SLP=4
+SLP=3
 
 TIMEOUT=1
 QUALITY=100
 THUMB="none"
+#ISO=100
 #AWB="sun"
 
 DEF_ARG="-dt --nopreview"
@@ -39,7 +40,8 @@ function take {
         $ISO $SS $AWB\
         -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
 }
-while : ; do
+#while : ; do
+while [ $COUNT -lt 600  ] ; do
     take &
     sleep $SLP #`echo "scale=4;$SLP-$CRR" | bc`
     COUNT=$[$COUNT+1]
