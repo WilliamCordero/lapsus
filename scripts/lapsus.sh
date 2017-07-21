@@ -1,9 +1,7 @@
 #!/bin/bash
-
 COUNT=0
 CRR="0.067"
 SLP=1
-
 DEF_ARG="-dt --nopreview"
 
 [ $WIDTH   ]&&  WIDTH="--width $WIDTH"
@@ -12,22 +10,20 @@ DEF_ARG="-dt --nopreview"
 [ $TIMEOUT ]&&TIMEOUT="--timeout $TIMEOUT"||TIMEOUT="--timeout 1"
 [ $THUMB   ]&&  THUMB="--thumb $THUMB"    ||  THUMB="--thumb none"
 
+[ $AWB     ]&&    AWB="-awb $AWB"         || AWB="-awb sun" #off,auto,sun,cloud,shade,tungsten,fluorescent,incandescent,flash,horizon
+[ $ISO     ]&&    ISO="-ISO $ISO"         || ISO="-ISO 100" 
+[ $SS      ]&&     SS="-ss "`echo "scale=6;1000000*($SS)" | bc | cut -d. -f1`
+
 [ $SHARP   ]&&  SHARP="--sharpness $SHARP"  #(-100 to 100)
 [ $CONTR   ]&&  CONTR="--contrast $CONTR"   #(-100 to 100)
 [ $BRIGH   ]&&  BRIGH="--brightness $BRIGH" #(-100 to 100)
 [ $SAT     ]&&    SAT="--saturation $SAT"   #(-100 to 100)
+[ $ROT     ]&&    ROT="--rotation $ROT"     #"0-359"
 
-[ $AWB     ]&&    AWB="-awb $AWB" || AWB="-awb sun" #off,auto,sun,cloud,shade,tungsten,fluorescent,incandescent,flash,horizon
-[ $ISO     ]&&    ISO="-ISO $ISO" || ISO="-ISO 100" 
-[ $SS      ]&&     SS="-ss "`echo "scale=6;1000000*($SS)" | bc | cut -d. -f1`
 
-[ $ROT     ]&&    ROT="--rotation $ROT" #"0-359"
-
-[ $LAST    ]&&   LAST="--latest $LAST"||LAST="/var/www/html/lapsus/last.jpg"
+[ $LAST    ]&&   LAST="--latest $LAST"    ||LAST="--latest /var/www/html/lapsus/last.jpg"
 [ ! $ODIR  ]&&   ODIR="/var/www/html/lapsus/DCIM"
 [ ! $OFILE ]&&  OFILE="lapsus_"`date +%H%M%S`
-
-#[ ! $ ]&&=""
 
 [ ! -d $ODIR ]&& mkdir $ODIR
 
@@ -40,7 +36,6 @@ function take {
         $ISO $SS $AWB $ROT $LAST\
         -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
 }
-#while : ; do
 while [ $COUNT -lt 600  ] ; do
     take &
     sleep $SLP #`echo "scale=4;$SLP-$CRR" | bc`

@@ -15,14 +15,27 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-var refresh_rate=1000;
+var shutter,iso,rot,rate,interval;
 function refresh(){
     var Image=document.getElementById('last');
     Image.src='last.jpg?rand='+Math.random();
-    setTimeout("refresh();",refresh_rate);
+    setTimeout("refresh();",rate);
 }
-function ch_rate(rate){
-    refresh_rate=rate;
+function ch_rate(r){document.getElementById("l_rate").innerHTML=rate=r;}
+function ch_interval(i){
+    interval=i<120?i:Math.round(Math.pow(i-120,1.57035))+120;
+    document.getElementById("l_interval").innerHTML=interval;
 }
-
+function ch_shutter(s){
+    shutter=1/Math.pow(2,(s/3));
+    if(shutter<1) document.getElementById("l_shutter").innerHTML="1/"+Math.round((1/shutter)*100)/100;
+    else document.getElementById("l_shutter").innerHTML=Math.round(shutter*100)/100;
+}
+function ch_iso(n){document.getElementById("l_iso").innerHTML=Math.round(iso=Math.pow(2,(n/3))*100);}
+function ch_rot(r){document.getElementById("l_rot").innerHTML=rot=r*90;}
+ch_rate(1000);
+ch_interval(1);
+ch_shutter(18);
+ch_iso(0);
+ch_rot(0);
 refresh();
