@@ -1,9 +1,9 @@
 var shutter,iso,rot,rate,interval;
 function refresh(){
     document.getElementById('last').src='last.jpg?r='+(Math.random()*100000);
-//    document.getElementById('ls').src='scripts/ls.php?r='+(Math.random()*100000);
+//    document.getElementById('ls').src='scripts/ls.php';
     
-    $.getJSON("scripts/ls.json", function(json) {
+    $.getJSON("scripts/ls.json", function(json){
         console.log(json); // this will show the info it in firebug console
     });
     

@@ -23,7 +23,7 @@
         Refresh(<span id="l_rate"></span>ms):<br>
         <input type="range" name="refresh" id="refresh" value="1000" min="100" max="5000" step="100" onchange="ch_rate(this.value);"><br>
         <?php //echo "lapsus"; ?>
-        <iframe id="ls" src="scripts/ls.php"></iframe>
+        <!--<iframe id="ls" src="scripts/ls.php"></iframe>-->
     </body>
     <script src="scripts/lapsus.js"></script>
 </html>
