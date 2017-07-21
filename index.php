@@ -9,7 +9,9 @@
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
     </head>
     <body>
-        <img  id="last" src="last.jpg" height="400"/><br>
+        <img id="last" src="last.jpg" height="400"/><br>
+        <button type="button" >start</button>
+        <button type="button" >stop</button>
         Shutter(<span id="l_shutter"></span>s)<br>
         <input type="range" name="shutter" id="shutter" value="18" min="-15" max="33" onchange="ch_shutter(this.value);"><br>
         ISO(<span id="l_iso"></span>)<br>
@@ -21,6 +23,7 @@
         Refresh(<span id="l_rate"></span>ms):<br>
         <input type="range" name="refresh" id="refresh" value="1000" min="100" max="5000" step="100" onchange="ch_rate(this.value);"><br>
         <?php //echo "lapsus"; ?>
+        <iframe id="ls" src="scripts/ls.php"></iframe>
     </body>
     <script src="scripts/lapsus.js"></script>
 </html>
