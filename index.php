@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>lapsus</title>
         <meta  name="viewport" content="width=device-width, initial-scale=1">
-        <link   rel="stylesheet" href="scripts/jquery.mobile-1.4.5.min.css">
-        <script src="scripts/jquery-1.12.4.min.js"></script>
-        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <link   rel="stylesheet"  href="assets/style/jquery.mobile-1.4.5.min.css">
+        <script src="assets/js/jquery-1.12.4.min.js"></script>
+        <script src="assets/js/jquery.mobile-1.4.5.min.js"></script>
     </head>
     <body>
         <div class="all">
