@@ -1,11 +1,10 @@
 var shutter,iso,rot,rate,interval;
 function refresh(){
-    document.getElementById('last').src='last.jpg?r='+(Math.random()*100000);
-//    document.getElementById('ls').src='scripts/ls.php';
-//    $.getJSON("scripts/ls.json", function(json){
-//        console.log(json);
-//    });
-    setTimeout("refresh();",rate);
+    $("#last").attr("src",'last.jpg?r='+(Math.random()*100000));
+/*    $.getJSON("scripts/ls.php", function(json){
+        console.log(json);
+    });
+*/    setTimeout("refresh();",rate);
 }
 function     ch_rate(r){document.getElementById("l_rate").innerHTML=rate=r;}
 function ch_interval(i){document.getElementById("l_interval").innerHTML=interval=i<60?i:i<120?((i-60)*2)+60:i<180?((i-120)*4)+180:i<240?((i-180)*8)+420:Math.round(Math.pow(i-240,1.9297))+900;}

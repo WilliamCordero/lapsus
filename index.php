@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <title>lapsus</title>
         <meta  name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link   rel="stylesheet"  href="style/jquery.mobile-1.4.5.min.css">-->
-        <link   rel="stylesheet"  href="style/lapsus.css">
+        <link rel="stylesheet" href="style/jquery.mobile.lapsus.css" />
+	<link rel="stylesheet" href="style/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="style/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" href="style/lapsus.css" />
         <script src="js/jquery-1.12.4.min.js"></script>
-        <!--<script src="js/jquery.mobile-1.4.5.min.js"></script>--> 
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
     </head>
     <body>
         <div class="all">
@@ -18,10 +20,10 @@
                 <div class="controls">
                     <div class="controls_row">
                         <div class="controls_cell">
-                            <button type="button" id="test" onclick="test();">test</button>
+                            <button class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow ui-corner-all" type="button" id="test" onclick="test();">Test</button>
                         </div>
                         <div class="controls_cell">
-                            <button type="button" id="start" onclick="control();">start</button>
+                            <button class="ui-btn ui-icon-camera ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="start" onclick="control();">Start</button>
                         </div>
                     </div>
                 </div>
