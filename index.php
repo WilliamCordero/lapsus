@@ -51,5 +51,5 @@
             </div>
         </div>
     </body>
-    <script src="scripts/lapsus.js"></script>
+    <script src="assets/js/lapsus.js"></script>
 </html>
