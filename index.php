@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Lapsus</title>
+        <title>Lapsus 0.01</title>
         <meta  name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/jquery.mobile.lapsus.css" />
 	<link rel="stylesheet" href="style/jquery.mobile.icons.min.css" />
