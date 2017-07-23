@@ -1,4 +1,4 @@
-var shutter,iso,rot,rate,interval,quality,brigh,contr,sat,sharp;
+var shutter,iso,rot=180,rate,interval,quality,brigh,contr,sat,sharp,awb="auto";
 function refresh(){
     $("#last").attr("src",'last.jpg?r='+(Math.random()*100000));
 /*    $.getJSON("scripts/ls.php", function(json){
@@ -21,8 +21,12 @@ function    ch_brigh(n){document.getElementById("l_brigh").innerHTML=brigh=n;}
 function    ch_contr(n){document.getElementById("l_contr").innerHTML=contr=n;}
 function      ch_sat(n){document.getElementById("l_sat").innerHTML=sat=n;}
 function    ch_sharp(n){document.getElementById("l_sharp").innerHTML=sharp=n;}
-
 function      ch_rot(n){document.getElementById("l_rot").innerHTML=rot=n.checked?180:0;}
+
+function      ch_awb(n){
+    awb=n.value;
+}
+
 function         test(){
     $.post("scripts/test.php",
     {
@@ -34,7 +38,8 @@ function         test(){
         BRIGH: brigh,
         CONTR: contr,
         SAT: sat,
-        SHARP: sharp
+        SHARP: sharp,
+        AWB: awb
     }
     ,function(d){document.getElementById("messages").innerHTML=d;});
 }
@@ -47,7 +52,6 @@ ch_interval(1);
 ch_shutter(18);
 ch_quality(100);
 ch_iso(0);
-ch_rot(0);
 ch_brigh(50);
 ch_contr(0);
 ch_sat(0);

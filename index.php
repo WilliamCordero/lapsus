@@ -69,7 +69,20 @@
                         Sharpness(<span id="l_sharp"></span>s):
                         <input type="range" name="sharp" id="sharp" value="0" min="-100" max="100" onchange="ch_sharp(this.value);"><br>
                     </div>
-                    
+                    <div class="element">
+                        <select name="awb" id="awb" onchange="ch_awb(this);">
+                            <option value="off">awb(off)</option>
+                            <option value="auto" selected>awb(auto)</option>
+                            <option value="sun">awb(sun)</option>
+                            <option value="cloud">awb(cloud)</option>
+                            <option value="shade">awb(shade)</option>
+                            <option value="tungsten">awb(tungsten)</option>
+                            <option value="fluorescent">awb(fluorescent)</option>
+                            <option value="incandescent">awb(incandescent)</option>
+                            <option value="flash">awb(flash)</option>
+                            <option value="horizon">awb(horizon)</option>
+                        </select>
+                    </div>
                     <!--<div class="element">
                         (<span id="l_"></span>s):
                         <input type="range" name="" id="" value="0" min="-100" max="100" onchange="ch_(this.value);"><br>
