@@ -38,7 +38,7 @@
                     </div>
                     <div class="element">
                         Rotation(<span id="l_rot"></span>°)
-                        <input type="range" name="rot" id="rot" value="0" min="0" max="3" onchange="ch_rot(this.value);"><br>
+                        <input type="checkbox" name="rot" id="rot" value="180" onchange="ch_rot(this);" checked><br>
                     </div>
                     <div class="element">
                         Interval(<span id="l_interval"></span>s):
@@ -46,13 +46,40 @@
                     </div>
                     <div class="element">
                         Refresh(<span id="l_rate"></span>ms):
-                        <input type="range" name="refresh" id="refresh" value="1000" min="100" max="5000" step="100" onchange="ch_rate(this.value);"><br>
+                        <input type="range" name="refresh" id="refresh" value="2000" min="100" max="5000" step="100" onchange="ch_rate(this.value);"><br>
                         <?php //echo "lapsus"; ?>
                     </div>
+                    <div class="element">
+                        Quality(<span id="l_quality"></span>):
+                        <input type="range" name="quality" id="quality" value="100" min="0" max="100" step="5" onchange="ch_quality(this.value);"><br>
+                    </div>
+                    <div class="element">
+                        Brightness(<span id="l_brigh"></span>s):
+                        <input type="range" name="brigh" id="brigh" value="50" min="0" max="100" onchange="ch_brigh(this.value);"><br>
+                    </div>
+                    <div class="element">
+                        Contrast(<span id="l_contr"></span>s):
+                        <input type="range" name="contr" id="contr" value="0" min="-100" max="100" onchange="ch_contr(this.value);"><br>
+                    </div>
+                    <div class="element">
+                        Saturation(<span id="l_sat"></span>s):
+                        <input type="range" name="sat" id="sat" value="0" min="-100" max="100" onchange="ch_sat(this.value);"><br>
+                    </div>
+                    <div class="element">
+                        Sharpness(<span id="l_sharp"></span>s):
+                        <input type="range" name="sharp" id="sharp" value="0" min="-100" max="100" onchange="ch_sharp(this.value);"><br>
+                    </div>
+                    
+                    <!--<div class="element">
+                        (<span id="l_"></span>s):
+                        <input type="range" name="" id="" value="0" min="-100" max="100" onchange="ch_(this.value);"><br>
+                    </div>-->
+
                 </div>
                 <div class="category">
                     <!--<iframe id="ls" src="scripts/ls.php"></iframe>-->
                 </div>
+                <div id="messages" class="category"></div>
             </div>
         </div>
     </body>

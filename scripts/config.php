@@ -1,2 +1,4 @@
 <?php
-$dcim='/var/www/html/lapsus/DCIM/';
+$home='/var/www/html/lapsus/';
+$dcim=$home.'DCIM/';
+$scripts=$home.'scripts/';

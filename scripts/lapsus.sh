@@ -4,6 +4,8 @@ CRR="0.067"
 SLP=1
 DEF_ARG="-dt --nopreview"
 
+[ $1       ]&& N=$1||N=600
+
 [ $WIDTH   ]&&  WIDTH="--width $WIDTH"
 [ $HEIGHT  ]&& HEIGHT="--height $HEIGHT"
 [ $QUALITY ]&&QUALITY="--quality $QUALITY"||QUALITY="--quality 100"
@@ -29,14 +31,15 @@ DEF_ARG="-dt --nopreview"
 
 function take {
     #Adjust()
-    echo `date +%H.%M.%S.%N` `printf "%06d\n" $COUNT` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
+    #`printf "%06d\n" $COUNT` 
+    echo `date +%H.%M.%S.%N` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
     raspistill $DEF_ARG\
         $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB\
         $SHARP $CONTR $BRIGH $SAT\
         $ISO $SS $AWB $ROT $LAST\
         -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
 }
-while [ $COUNT -lt 600  ] ; do
+while [ $COUNT -lt $N  ] ; do
     take &
     sleep $SLP #`echo "scale=4;$SLP-$CRR" | bc`
     COUNT=$[$COUNT+1]
