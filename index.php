@@ -29,6 +29,30 @@
                 </div>
                 <div class="category">
                     <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="shutter">Shutter(<span id="l_shutter">1/64</span>s)</label>
+                                <input type="range" name="shutter" id="shutter" value="18" min="-15" max="33" onchange="ch_shutter(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lshutter" onclick="ch_lshutter(this)">.</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="iso">ISO(<span id="l_iso">50</span>)</label>
+                                <input type="range" name="iso" id="iso" value="-3" min="-3" max="18" onchange="ch_iso(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="liso" onclick="ch_liso(this)">.</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="element">
                         <select name="awb" id="awb" onchange="ch_awb(this);">
                             <option value="off">awb(off)</option>
                             <option value="auto" selected>awb(auto)</option>
@@ -45,36 +69,11 @@
                     <div class="element">
                         <div class="element_row">
                             <div class="element_cell">
-                                <label for="shutter">Shutter(<span id="l_shutter">1/64</span>s)</label>
-                                <input type="range" name="shutter" id="shutter" value="18" min="-15" max="33" onchange="ch_shutter(this);" disabled>
-                            </div>
-                            <div class="element_lock">
-                                <input type="checkbox" name="lshutter" id="lshutter" onchange="ch_lshutter(this);">
-                                <label for="lshutter">🔒</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <div class="element_row">
-                            <div class="element_cell">
-                                <label for="iso">ISO(<span id="l_iso">50</span>)</label>
-                                <input type="range" name="iso" id="iso" value="-3" min="-3" max="18" onchange="ch_iso(this);" disabled>
-                            </div>
-                            <div class="element_lock">
-                                <input type="checkbox" name="liso" id="liso" onchange="ch_liso(this);">
-                                <label for="liso">🔒</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <div class="element_row">
-                            <div class="element_cell">
                                 <label for="brigh">Brightness(<span id="l_brigh">50</span>)</label>
                                 <input type="range" name="brigh" id="brigh" value="50" min="0" max="100" onchange="ch_brigh(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lbrigh" id="lbrigh" onchange="ch_lbrigh(this);">
-                                <label for="lbrigh">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lbrigh" onclick="ch_lbrigh(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -85,8 +84,7 @@
                                 <input type="range" name="contr" id="contr" value="0" min="-100" max="100" onchange="ch_contr(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lcontr" id="lcontr" onchange="ch_lcontr(this);">
-                                <label for="lcontr">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lcontr" onclick="ch_lcontr(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -97,8 +95,7 @@
                                 <input type="range" name="sat" id="sat" value="0" min="-100" max="100" onchange="ch_sat(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lsat" id="lsat" onchange="ch_lsat(this);">
-                                <label for="lsat">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lsat" onclick="ch_lsat(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -109,8 +106,7 @@
                                 <input type="range" name="sharp" id="sharp" value="0" min="-100" max="100" onchange="ch_sharp(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lsharp" id="lsharp" onchange="ch_lsharp(this);">
-                                <label for="lsharp">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lsharp" onclick="ch_lsharp(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -121,8 +117,7 @@
                                 <input type="range" name="width" id="width" value="3280" min="0" max="3280" onchange="ch_width(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lwidth" id="lwidth" onchange="ch_lwidth(this);">
-                                <label for="lwidth">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lwidth" onclick="ch_lwidth(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -133,8 +128,7 @@
                                 <input type="range" name="height" id="height" value="2464" min="0" max="2464" onchange="ch_height(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lheight" id="lheight" onchange="ch_lheight(this);">
-                                <label for="lheight">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lheight" onclick="ch_lheight(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -145,8 +139,7 @@
                                 <input type="range" name="quality" id="quality" value="100" min="0" max="100" step="5" onchange="ch_quality(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lquality" id="lquality" onchange="ch_lquality(this);">
-                                <label for="lquality">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lquality" onclick="ch_lquality(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -162,7 +155,8 @@
                         <label for="vflip">Vertical Flip</label>
                         <input type="checkbox" name="vflip" id="vflip" onchange="ch_vflip(this);">
                     </div>
-
+                </div>
+                <div class="category">
                     <div class="element">
                         <div class="element_row">
                             <div class="element_cell">
@@ -170,8 +164,7 @@
                                 <input type="range" name="interval" id="interval" value="1" min="0" max="300" onchange="ch_interval(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="linterval" id="linterval" onchange="ch_linterval(this);">
-                                <label for="linterval">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="linterval" onclick="ch_linterval(this)">.</button>
                             </div>
                         </div>
                     </div>
@@ -182,8 +175,7 @@
                                 <input type="range" name="rate" id="rate" value="2000" min="100" max="5000" step="100" onchange="ch_rate(this);" disabled>
                             </div>
                             <div class="element_lock">
-                                <input type="checkbox" name="lrate" id="lrate" onchange="ch_lrate(this);">
-                                <label for="lrate">🔒</label>
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lrate" onclick="ch_lrate(this)">.</button>
                             </div>
                         </div>
                     </div>
