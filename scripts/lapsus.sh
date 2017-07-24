@@ -21,7 +21,8 @@ DEF_ARG="-dt --nopreview"
 [ $BRIGH   ]&&  BRIGH="--brightness $BRIGH" #(-100 to 100)
 [ $SAT     ]&&    SAT="--saturation $SAT"   #(-100 to 100)
 [ $ROT     ]&&    ROT="--rotation $ROT"     #"0-359"
-
+[ $HFLIP   ]&&  HFLIP="--hflip"
+[ $VFLIP   ]&&  VFLIP="--vflip"
 
 [ $LAST    ]&&   LAST="--latest $LAST"    ||LAST="--latest /var/www/html/lapsus/last.jpg"
 [ ! $ODIR  ]&&   ODIR="/var/www/html/lapsus/DCIM"
@@ -32,11 +33,11 @@ DEF_ARG="-dt --nopreview"
 function take {
     #Adjust()
     #`printf "%06d\n" $COUNT` 
-    echo `date +%H.%M.%S.%N` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
+    echo `date +%H.%M.%S.%N` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $HFLIP $VFLIP $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
     raspistill $DEF_ARG\
         $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB\
         $SHARP $CONTR $BRIGH $SAT\
-        $ISO $SS $AWB $ROT $LAST\
+        $ISO $SS $AWB $ROT $HFLIP $VFLIP $LAST\
         -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
 }
 while [ $COUNT -lt $N  ] ; do

@@ -11,8 +11,13 @@ if(!empty($_POST)){
     $cmd.="export SAT=".$_POST['SAT']."; ";
     $cmd.="export SHARP=".$_POST['SHARP']."; ";
     $cmd.="export AWB=".$_POST['AWB']."; ";
+    //$cmd.="export WIDTH=".$_POST['WIDTH']."; ";
+    //$cmd.="export HEIGHT=".$_POST['HEIGHT']."; ";
+    if($_POST['HFLIP']=='true')$cmd.="export HFLIP=".$_POST['HFLIP']."; ";
+    if($_POST['VFLIP']=='true')$cmd.="export VFLIP=".$_POST['VFLIP']."; ";
     //$cmd.="export =".$_POST['']."; ";
     $cmd.=$scripts.'lapsus.sh 1';
-    print_r(shell_exec($cmd)."<br>");
-    print_r($cmd."<br>");
+    $res=shell_exec($cmd);
+//    print_r($res."<br>");
+//    print_r($cmd."<br>");
 }

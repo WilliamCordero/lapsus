@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>Lapsus 0.01</title>
         <meta  name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style/jquery.mobile.lapsus.css" />
-	<link rel="stylesheet" href="style/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="style/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" href="style/jquery.mobile.lapsus.css"/>
+	<link rel="stylesheet" href="style/jquery.mobile.icons.min.css"/>
+	<link rel="stylesheet" href="style/jquery.mobile.structure-1.4.5.min.css"/>
         <link rel="stylesheet" href="style/lapsus.css" />
         <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -29,14 +29,6 @@
                 </div>
                 <div class="category">
                     <div class="element">
-                        <label for="shutter">Shutter(<span id="l_shutter">1/64</span>s)</label>
-                        <input type="range" name="shutter" id="shutter" value="18" min="-15" max="33" onchange="ch_shutter(this);">
-                    </div>
-                    <div class="element">
-                        <label for="iso">ISO(<span id="l_iso">50</span>)</label>
-                        <input type="range" name="iso" id="iso" value="-3" min="-3" max="18" onchange="ch_iso(this);">
-                    </div>
-                    <div class="element">
                         <select name="awb" id="awb" onchange="ch_awb(this);">
                             <option value="off">awb(off)</option>
                             <option value="auto" selected>awb(auto)</option>
@@ -51,56 +43,150 @@
                         </select>
                     </div>
                     <div class="element">
-                        <label for="brigh">Brightness(<span id="l_brigh">50</span>s)</label>
-                        <input type="range" name="brigh" id="brigh" value="50" min="0" max="100" onchange="ch_brigh(this);">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="shutter">Shutter(<span id="l_shutter">1/64</span>s)</label>
+                                <input type="range" name="shutter" id="shutter" value="18" min="-15" max="33" onchange="ch_shutter(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lshutter" id="lshutter" onchange="ch_lshutter(this);">
+                                <label for="lshutter">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        <label for="contr">Contrast(<span id="l_contr">0</span>s)</label>
-                        <input type="range" name="contr" id="contr" value="0" min="-100" max="100" onchange="ch_contr(this);">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="iso">ISO(<span id="l_iso">50</span>)</label>
+                                <input type="range" name="iso" id="iso" value="-3" min="-3" max="18" onchange="ch_iso(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="liso" id="liso" onchange="ch_liso(this);">
+                                <label for="liso">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        <label for="sat">Saturation(<span id="l_sat">0</span>s)</label>
-                        <input type="range" name="sat" id="sat" value="0" min="-100" max="100" onchange="ch_sat(this);">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="brigh">Brightness(<span id="l_brigh">50</span>)</label>
+                                <input type="range" name="brigh" id="brigh" value="50" min="0" max="100" onchange="ch_brigh(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lbrigh" id="lbrigh" onchange="ch_lbrigh(this);">
+                                <label for="lbrigh">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        <label for="sharp">Sharpness(<span id="l_sharp">0</span>s)</label>
-                        <input type="range" name="sharp" id="sharp" value="0" min="-100" max="100" onchange="ch_sharp(this);">
-                    </div>
-                    
-                    
-                    <div class="element">
-                        <label for="rot">Rotation(<span id="l_rot">180</span>°)</label>
-                        <input type="checkbox" name="rot" id="rot" value="180" onchange="ch_rot(this);" checked><br>
-                    </div>
-                    <div class="element">
-                        Interval(<span id="l_interval"></span>s):
-                        <input type="range" name="interval" id="interval" value="1" min="0" max="300" onchange="ch_interval(this.value);"><br>
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="contr">Contrast(<span id="l_contr">0</span>)</label>
+                                <input type="range" name="contr" id="contr" value="0" min="-100" max="100" onchange="ch_contr(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lcontr" id="lcontr" onchange="ch_lcontr(this);">
+                                <label for="lcontr">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        Refresh(<span id="l_rate"></span>ms):
-                        <input type="range" name="refresh" id="refresh" value="2000" min="100" max="5000" step="100" onchange="ch_rate(this.value);"><br>
-                        <?php //echo "lapsus"; ?>
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="sat">Saturation(<span id="l_sat">0</span>)</label>
+                                <input type="range" name="sat" id="sat" value="0" min="-100" max="100" onchange="ch_sat(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lsat" id="lsat" onchange="ch_lsat(this);">
+                                <label for="lsat">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        Quality(<span id="l_quality"></span>):
-                        <input type="range" name="quality" id="quality" value="100" min="0" max="100" step="5" onchange="ch_quality(this.value);"><br>
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="sharp">Sharpness(<span id="l_sharp">0</span>)</label>
+                                <input type="range" name="sharp" id="sharp" value="0" min="-100" max="100" onchange="ch_sharp(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lsharp" id="lsharp" onchange="ch_lsharp(this);">
+                                <label for="lsharp">🔒</label>
+                            </div>
+                        </div>
                     </div>
-                    
                     <div class="element">
-                        Width(<span id="l_width"></span>px):
-                        <input type="range" name="width" id="width" value="3280" min="0" max="3280" onchange="ch_width(this);">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="width">Width(<span id="l_width">3280</span>px)</label>
+                                <input type="range" name="width" id="width" value="3280" min="0" max="3280" onchange="ch_width(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lwidth" id="lwidth" onchange="ch_lwidth(this);">
+                                <label for="lwidth">🔒</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="element">
-                        Height(<span id="l_height"></span>px):
-                        <input type="range" name="height" id="height" value="2464" min="0" max="2464" onchange="ch_height(this);">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="height">Height(<span id="l_height">2464</span>px)</label>
+                                <input type="range" name="height" id="height" value="2464" min="0" max="2464" onchange="ch_height(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lheight" id="lheight" onchange="ch_lheight(this);">
+                                <label for="lheight">🔒</label>
+                            </div>
+                        </div>
                     </div>
-                    
-                    
-                    <!--<div class="element">
-                        (<span id="l_"></span>s):
-                        <input type="range" name="" id="" value="0" min="-100" max="100" onchange="ch_(this.value);"><br>
-                    </div>-->
+                    <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="queality">Quality(<span id="l_quality">100</span>)</label>
+                                <input type="range" name="quality" id="quality" value="100" min="0" max="100" step="5" onchange="ch_quality(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lquality" id="lquality" onchange="ch_lquality(this);">
+                                <label for="lquality">🔒</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <label for="rot">Rotation 180°</label>
+                        <input type="checkbox" name="rot" id="rot" onchange="ch_rot(this);" checked>
+                    </div>
+                    <div class="element">
+                        <label for="hflip">Horizontal Flip</label>
+                        <input type="checkbox" name="hflip" id="hflip" onchange="ch_hflip(this);">
+                    </div>
+                    <div class="element">
+                        <label for="vflip">Vertical Flip</label>
+                        <input type="checkbox" name="vflip" id="vflip" onchange="ch_vflip(this);">
+                    </div>
 
+                    <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="interval">Interval(<span id="l_interval">1</span>s)</label>
+                                <input type="range" name="interval" id="interval" value="1" min="0" max="300" onchange="ch_interval(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="linterval" id="linterval" onchange="ch_linterval(this);">
+                                <label for="linterval">🔒</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="rate">Refresh(<span id="l_rate">2500</span>ms)</label>
+                                <input type="range" name="rate" id="rate" value="2000" min="100" max="5000" step="100" onchange="ch_rate(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <input type="checkbox" name="lrate" id="lrate" onchange="ch_lrate(this);">
+                                <label for="lrate">🔒</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="category">
                     <!--<iframe id="ls" src="scripts/ls.php"></iframe>-->

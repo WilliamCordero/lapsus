@@ -16,4 +16,17 @@
     font-size: 10px;
     text-align: center;
     color: #bbb;
+    width: 100%;
+    display: table;
+}
+.element_row{
+    display: table-row;
+}
+.element_cell{
+    width: 95%;
+    display: table-cell;
+}
+.element_lock{
+    width: 5%;
+    display: table-cell;
 }
