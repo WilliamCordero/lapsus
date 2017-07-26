@@ -191,12 +191,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="category">
-                    <!--<iframe id="ls" src="scripts/ls.php"></iframe>-->
+                <div class="category"><br>
+                    <button class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow ui-corner-all" type="button" id="photos" onclick="location.href='DCIM/';">Photos</button>
+                    <!--<a href="DCIM/">Photos</a>-->
                 </div>
                 <div id="messages" class="category"></div>
             </div>
         </div>
+    <center>.</center>>
     </body>
     <script src="js/lapsus.js"></script>
 </html>
