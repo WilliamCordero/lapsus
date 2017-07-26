@@ -3,6 +3,7 @@ if echo $@ | grep -q daemon; then
     setsid $0 >/dev/null 2>&1 < /dev/null &
     exit
 fi
+N=0
 DEF_ARG="-dt --nopreview"
 [ ! $SLP   ]&& SLP=2
 [ ! $COUNT ]&& COUNT=300
@@ -27,14 +28,13 @@ DEF_ARG="-dt --nopreview"
 [ ! -d $ODIR ]&& mkdir $ODIR
 function take {
     #Adjust()
-    echo `date +%H.%M.%S.%N` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $HFLIP $VFLIP $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
+    echo `date +%H.%M.%S.%N` $DEF_ARG $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB $SHARP $CONTR $BRIGH $SAT $ISO $SS $AWB $ROT $HFLIP $VFLIP $LAST -o $ODIR/$OFILE`printf "_%06d.jpg" $N`
     raspistill $DEF_ARG\
         $WIDTH $HEIGHT $QUALITY $TIMEOUT $THUMB\
         $SHARP $CONTR $BRIGH $SAT\
         $ISO $SS $AWB $ROT $HFLIP $VFLIP $LAST\
-        -o $ODIR/$OFILE`printf "_%06d.jpg" $COUNT`
+        -o $ODIR/$OFILE`printf "_%06d.jpg" $N`
 }
-N=0
 while [ $N -lt $COUNT  ] ; do
     take &
     sleep $SLP

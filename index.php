@@ -171,7 +171,7 @@
                     <div class="element">
                         <div class="element_row">
                             <div class="element_cell">
-                                <label for="count">Count(<span id="l_count">300</span>s)</label>
+                                <label for="count">Count(<span id="l_count">300</span>)</label>
                                 <input type="range" name="count" id="count" value="300" min="0" max="1200" onchange="ch_count(this);" disabled>
                             </div>
                             <div class="element_lock">
