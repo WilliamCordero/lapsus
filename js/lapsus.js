@@ -1,5 +1,6 @@
 var rate=2500,
 interval=1,
+   count=300,
      awb="auto",
      iso=50,
  shutter=15625,
@@ -16,13 +17,17 @@ interval=1,
 ;
 function refresh(){
     $("#last").attr("src",'last.jpg?r='+(Math.random()*100000));
-/*    $.getJSON("scripts/ls.php", function(json){
-        console.log(json);
+    setTimeout("refresh();",rate);
+}
+function status(){
+    $.get("scripts/ps.php",function(n){
+        $('#rec').html(n==='false'?'Start':'Stop');
+        $('#rec').css("background-color",n==='false'?'#000':'#300');
     });
-*/    setTimeout("refresh();",rate);
+    setTimeout("status();",1000);
 }
 function ls(){
-    $.getJSON("scripts/ls.php", function(json){
+    $.getJSON("scripts/ls.php",function(json){
         document.getElementById("messages").innerHTML=json;
     });
     setTimeout("ls();",rate*4);
@@ -48,37 +53,39 @@ function   ch_quality(n){$('#l_quality').html(quality=n.value);}
 function  ch_lquality(n){$('#quality').slider($("#quality").prop('disabled')?'enable':'disable');}
 function  ch_interval(n){$('#l_interval').html(interval=n.value<60?n.value:n.value<120?((n.value-60)*2)+60:n.value<180?((n.value-120)*4)+180:n.value<240?((n.value-180)*8)+420:Math.round(Math.pow(n.value-240,1.9297))+900);}
 function ch_linterval(n){$('#interval').slider($("#interval").prop('disabled')?'enable':'disable');}
+function  ch_count(n){$('#l_count').html(count=n.value);}
+function ch_lcount(n){$('#count').slider($("#count").prop('disabled')?'enable':'disable');}
 function      ch_rate(n){$('#l_rate').html(rate=n.value);}
 function     ch_lrate(n){$('#rate').slider($("#rate").prop('disabled')?'enable':'disable');}
 //function     ch_l(n){$('#').slider(n.checked?'enable':'disable');}
+function       ch_rot(n){rot=n.checked?180:0;}
+function     ch_hflip(n){hflip=n.checked;}
+function     ch_vflip(n){vflip=n.checked;}
+function       ch_awb(n){awb=n.value;}
 
-function      ch_rot(n){rot=n.checked?180:0;}
-function      ch_hflip(n){hflip=n.checked;}
-function      ch_vflip(n){vflip=n.checked;}
-function      ch_awb(n){awb=n.value;}
-
-function         test(){
+function test(){
     $.post("scripts/test.php",
-    {   SS: shutter,
-        ISO: iso,
-        ROT: rot,
-        SLP: interval,
+    {        SS: shutter,
+            ISO: iso,
+            ROT: rot,
+            SLP: interval,
         QUALITY: quality,
-        BRIGH: brigh,
-        CONTR: contr,
-        SAT: sat,
-        SHARP: sharp,
-        AWB: awb,
-        WIDTH: width,
-        HEIGHT: heigth,
-        HFLIP: hflip,
-        VFLIP: vflip
-    }
-    ,function(d){document.getElementById("messages").innerHTML=d;});
+          BRIGH: brigh,
+          CONTR: contr,
+            SAT: sat,
+          SHARP: sharp,
+            AWB: awb,
+          WIDTH: width,
+         HEIGHT: heigth,
+          HFLIP: hflip,
+          VFLIP: vflip
+    },function(d){$('#messages').html(d);});
 }
-function      control(){
-    console.log("START");
+function control(){
+    if($('#rec').html()==='Start'){
+        console.log("START");
+    }else{$.get("scripts/kill.php");}
 }
-
 //ls();
+status();
 refresh();

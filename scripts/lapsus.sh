@@ -1,10 +1,10 @@
 #!/bin/bash
 COUNT=0
 CRR="0.067"
-SLP=1
 DEF_ARG="-dt --nopreview"
 
 [ $1       ]&& N=$1||N=600
+[ ! $SLP   ]&& SLP=2
 
 [ $WIDTH   ]&&  WIDTH="--width $WIDTH"
 [ $HEIGHT  ]&& HEIGHT="--height $HEIGHT"

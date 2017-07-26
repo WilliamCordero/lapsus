@@ -20,10 +20,10 @@
                 <div class="controls">
                     <div class="controls_row">
                         <div class="controls_cell">
-                            <button class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow ui-corner-all" type="button" id="test" onclick="test();">Test</button>
+                            <button class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow ui-corner-all" type="button" id="test" onclick="test(this);">Test</button>
                         </div>
                         <div class="controls_cell">
-                            <button class="ui-btn ui-icon-camera ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="start" onclick="control();">Start</button>
+                            <button class="ui-btn ui-icon-camera ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="rec" onclick="control(this);">Start</button>
                         </div>
                     </div>
                 </div>
@@ -165,6 +165,17 @@
                             </div>
                             <div class="element_lock">
                                 <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="linterval" onclick="ch_linterval(this)">.</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_row">
+                            <div class="element_cell">
+                                <label for="count">Count(<span id="l_count">300</span>s)</label>
+                                <input type="range" name="count" id="count" value="300" min="0" max="1200" onchange="ch_count(this);" disabled>
+                            </div>
+                            <div class="element_lock">
+                                <button class="ui-btn ui-btn-nb ui-icon-lock ui-btn-icon-right ui-shadow ui-corner-all" type="button" id="lcount" onclick="ch_lcount(this)">.</button>
                             </div>
                         </div>
                     </div>
