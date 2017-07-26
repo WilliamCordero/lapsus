@@ -79,11 +79,27 @@ function test(){
          HEIGHT: heigth,
           HFLIP: hflip,
           VFLIP: vflip
-    },function(d){$('#messages').html(d);});
+    });
 }
 function control(){
     if($('#rec').html()==='Start'){
-        console.log("START");
+        $.post("scripts/start.php",
+        {    SS: shutter,
+            ISO: iso,
+            ROT: rot,
+        QUALITY: quality,
+          BRIGH: brigh,
+          CONTR: contr,
+            SAT: sat,
+          SHARP: sharp,
+            AWB: awb,
+          WIDTH: width,
+         HEIGHT: heigth,
+          HFLIP: hflip,
+          VFLIP: vflip,
+            SLP: interval,
+          COUNT: count
+        });
     }else{$.get("scripts/kill.php");}
 }
 //ls();

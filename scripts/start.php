@@ -15,9 +15,9 @@ if(!empty($_POST)){
     //$cmd.="export HEIGHT=".$_POST['HEIGHT']."; ";
     if($_POST['HFLIP']=='true')$cmd.="export HFLIP=".$_POST['HFLIP']."; ";
     if($_POST['VFLIP']=='true')$cmd.="export VFLIP=".$_POST['VFLIP']."; ";
-    $cmd.="export COUNT=1; ";
-    //$cmd.="export =".$_POST['']."; ";
-    $cmd.=$scripts.'lapsus.sh';
+    $cmd.="export SLP=".$_POST['SLP']."; ";
+    $cmd.="export COUNT=".$_POST['COUNT']."; ";
+    $cmd.=$scripts.'lapsus.sh daemon';
     $res=shell_exec($cmd);
 //    print_r($res."<br>");
 //    print_r($cmd."<br>");
