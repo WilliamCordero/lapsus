@@ -19,6 +19,6 @@ if(!empty($_POST)){
     $cmd.="export COUNT=".$_POST['COUNT']."; ";
     $cmd.=$scripts.'lapsus.sh daemon';
     $res=shell_exec($cmd);
-//    print_r($res."<br>");
-//    print_r($cmd."<br>");
+    print_r($res."<br>");
+    print_r($cmd."<br>");
 }

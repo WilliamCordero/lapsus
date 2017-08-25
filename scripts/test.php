@@ -19,6 +19,6 @@ if(!empty($_POST)){
     //$cmd.="export =".$_POST['']."; ";
     $cmd.=$scripts.'lapsus.sh';
     $res=shell_exec($cmd);
-//    print_r($res."<br>");
-//    print_r($cmd."<br>");
+    //print_r($res."<br>");
+    //print_r($cmd."<br>");
 }
