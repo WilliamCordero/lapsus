@@ -24,7 +24,7 @@ DEF_ARG="-dt --nopreview"
 [ $VFLIP   ]&&  VFLIP="--vflip"
 [ $LAST    ]&&   LAST="--latest $LAST"    ||LAST="--latest /var/www/html/lapsus/last.jpg"
 [ ! $ODIR  ]&&   ODIR="/var/www/html/lapsus/DCIM"
-[ ! $OFILE ]&&  OFILE="lapsus_"`date +%H%M%S`
+[ ! $OFILE ]&&  OFILE="lapsus_"`date +%s`
 [ ! -d $ODIR ]&& mkdir $ODIR
 function take {
     #Adjust()
